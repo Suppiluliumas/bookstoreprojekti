@@ -13,7 +13,7 @@ public class Book {
 		this.author = null;
 		this.year = 0;
 		this.isbn = 0;
-		this.price = 0.0;
+		this.price = 0.00;
 	}
 	public Book(String title, String author, int year, int isbn, double price) {
 		super();
