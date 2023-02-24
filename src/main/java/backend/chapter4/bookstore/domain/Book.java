@@ -20,6 +20,7 @@ public class Book {
 	private int year;
 	private int isbn;
 	private double price;
+
 	
 	@ManyToOne
 	@JoinColumn(name= "categoryid")
