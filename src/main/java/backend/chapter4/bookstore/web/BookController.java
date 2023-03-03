@@ -27,7 +27,7 @@ public class BookController {
 		return "booklist";
 	}
 	// RESTful service to get all students
-	@RequestMapping(value="books", method= RequestMethod.GET)
+	@RequestMapping(value="/books", method= RequestMethod.GET)
 	public @ResponseBody List<Book> bookListRest() {
 		return (List<Book>) repository.findAll();
 	}
