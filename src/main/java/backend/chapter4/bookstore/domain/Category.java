@@ -2,6 +2,8 @@ package backend.chapter4.bookstore.domain;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,6 +19,8 @@ private Long categoryid;
 private String name;
 
 @OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
+//@JsonIgnore
+@JsonIgnoreProperties("category")  // one way to avoid infinite loop during JSON serialization/deserialization
 private List<Book> books;
 
 public Category() {}
