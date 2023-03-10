@@ -27,12 +27,12 @@ public class BookController {
 		model.addAttribute("books",repository.findAll());
 		return "booklist";
 	}
-	// RESTful service to get all students
+	
 	@RequestMapping(value="/books", method= RequestMethod.GET)
 	public @ResponseBody List<Book> bookListRest() {
 		return (List<Book>) repository.findAll();
 	}
-	// RESTful service to get student by id
+	
 	@RequestMapping(value="/books/{id}", method = RequestMethod.GET)
 	public @ResponseBody Optional<Book> findBookRest (@PathVariable("id") Long bookId) {
 		return repository.findById(bookId);
@@ -62,4 +62,8 @@ public class BookController {
 		repository.deleteById(bookId);
 		return "redirect:../booklist";
 	}
+    @RequestMapping(value="/login")
+	public String login() {
+		return "login";
+	}   
 }
