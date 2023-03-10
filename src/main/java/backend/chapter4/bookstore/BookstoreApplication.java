@@ -11,6 +11,8 @@ import backend.chapter4.bookstore.domain.Book;
 import backend.chapter4.bookstore.domain.BookRepository;
 import backend.chapter4.bookstore.domain.Category;
 import backend.chapter4.bookstore.domain.CategoryRepository;
+import backend.chapter4.bookstore.domain.User;
+import backend.chapter4.bookstore.domain.UserRepository;
 
 
 
@@ -21,7 +23,7 @@ public class BookstoreApplication {
 		SpringApplication.run(BookstoreApplication.class, args);
 	}
 @Bean
-public CommandLineRunner demo(BookRepository bookRepository, CategoryRepository categoryRepository) {
+public CommandLineRunner demo(BookRepository bookRepository, CategoryRepository categoryRepository, UserRepository userRepository) {
 	return (args) -> {
 		log.info("save a couple of books");
 		Category category1 = new Category("Scifi");
@@ -44,6 +46,11 @@ public CommandLineRunner demo(BookRepository bookRepository, CategoryRepository 
 		bookRepository.save(b1);
 		bookRepository.save(b2);
 		bookRepository.save(b3);
+		
+		User user1 = new User("jesse", "$2a$10$FBdKrcpdqjyVjDDKQV6jSeTcks6FLREMlJlISV8XYcsUC/DboVOx6", "ADMIN");
+		User user2 = new User("vieras", "$2a$10$YsnJj5xnL0vCtALJGnzEn.CN4NExjFyJjNviT6HWyVToHRxeQxuHa", "USER");
+		userRepository.save(user1);
+		userRepository.save(user2);
 		
 		log.info("fetch all books");
 		for (Book book : bookRepository.findAll()) {
