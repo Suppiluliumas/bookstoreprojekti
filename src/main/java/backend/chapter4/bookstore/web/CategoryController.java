@@ -6,7 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import backend.chapter4.bookstore.domain.Book;
+
 import backend.chapter4.bookstore.domain.Category;
 import backend.chapter4.bookstore.domain.CategoryRepository;
 
