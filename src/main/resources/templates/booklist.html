@@ -8,7 +8,7 @@
 <body>
 	<div class="container">
 		<h1>Books</h1>
-			<h3>Welcome <span sec:authentication="name"></span</h3>
+			<h3>Welcome <span sec:authentication="name"></span></h3>
 		</div>
 		<form th:action="@{/logout}" method="post">
 			<input type="submit" value="Sign Out" class="btn btn-sm btn-danger"/>
@@ -31,8 +31,8 @@
 			<td th:text="${book.isbn}">Isbn</td>
 			<td th:text="${book.price}">Price</td>
 			<td th:text="${book.category.name}">Category</td>
-				<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${book.id})}"class="btn btn-danger">Delete</a></td>
-			<td><a th:href="@{/edit/{id}(id=${book.id})}"class="btn btn-secondary">Edit</a></td>
+			<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${book.id})}"class="btn btn-danger">Delete</a></td>
+			<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/editbook/{id}(id=${book.id})}"class="btn btn-secondary">Edit</a></td>
 		</tr>
 			</table>
 			<a href="/add" class="btn btn-success">Add book</a>
